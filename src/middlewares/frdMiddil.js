@@ -7,8 +7,9 @@ let frdMiddileware = (req,res,next)=>{
 
     try {
         //var decoded = jwt.verify(token, 'secretKey');
-        var verifyToken = jwt.verify(authToken,process.env.JWT_TOKEN)
-        console.log(verifyToken)
+        var decoded = jwt.verify(authToken,process.env.JWT_TOKEN)
+        console.log(decoded)
+        
     } catch (error) {
         res.status(403).json({
             msg:"forbidden"

@@ -14,6 +14,10 @@ let userDeatail = new Schema({
         type:String,
         required:true,
         description:'feelt the password block'
+    },
+    role:{
+        type:String,
+        enum:['admin', 'friend','group members']
     }
 
 })

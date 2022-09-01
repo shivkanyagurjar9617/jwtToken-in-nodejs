@@ -12,7 +12,7 @@ const registerController = (req,res)=>{
             let encPass = bcrypt.hashSync(req.body.password_hash, saltRounds);
             req.body.password_hash = encPass 
 
-            const token = jwt.sign(req.body, process.env.JWT_TOKEN); 
+            //const token = jwt.sign(req.body, process.env.JWT_TOKEN); 
             const userObj = new User( req.body );
             userObj.save()
             
@@ -20,7 +20,7 @@ const registerController = (req,res)=>{
                 res.status(200).json({
                     msg: "User saved successfully",
                     userDeatail:req.body,
-                    token:token
+                   
                 })
             }).catch(()=>{
                 res.status(404).json({
